@@ -100,7 +100,7 @@ const Dashboard = () => {
 
       try {
         const formData = new FormData();
-        formData.append('file', file);
+        formData.append('data', file); // Changed from 'file' to 'data'
 
         const uploadUrl = `${baseUrl}/${uploadPath}`;
         console.log('Making upload request to:', uploadUrl);
@@ -108,7 +108,6 @@ const Dashboard = () => {
         const response = await fetch(uploadUrl, {
           method: 'POST',
           headers: {
-            'Authorization': `Basic ${btoa('admin:admin')}`,
             'Accept': '*/*'
           },
           body: formData
@@ -167,7 +166,6 @@ const Dashboard = () => {
       const response = await fetch(queryUrl, {
         method: 'POST',
         headers: {
-          'Authorization': `Basic ${btoa('admin:admin')}`,
           'Accept': '*/*',
           'Content-Type': 'application/json'
         },
