@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useAuth, providers } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useNotification } from '../context/NotificationContext';
 import Button from '../components/Button';
 import { Loader, Mail } from 'lucide-react';
