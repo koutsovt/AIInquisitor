@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useAuth, providers } from '../context/AuthContext';
 import { useNotification } from '../context/NotificationContext';
 import Button from '../components/Button';
-import { Loader } from 'lucide-react';
+import { Loader, Mail } from 'lucide-react';
 import Logo from '../components/Logo';
 
 const Login = () => {
