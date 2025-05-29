@@ -20,11 +20,14 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 function App() {
   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
-  // Prevent rendering if client ID is not available
   if (!googleClientId) {
-    return <div className="min-h-screen flex items-center justify-center">
-      <p className="text-red-600">Error: Google Client ID not configured</p>
-    </div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+          <p className="text-red-600 text-center font-medium">Error: Google Client ID not configured. Please check your environment variables.</p>
+        </div>
+      </div>
+    );
   }
 
   return (
@@ -34,7 +37,7 @@ function App() {
           <NotificationProvider>
             <Routes>
               <Route path="/" element={<Layout><Login /></Layout>} />
-              <Route path="/auth/callback" element={<Navigate to="/dashboard\" replace />} />
+              <Route path="/auth/callback" element={<Navigate to="/dashboard" replace />} />
               <Route 
                 path="/dashboard" 
                 element={
@@ -53,4 +56,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
