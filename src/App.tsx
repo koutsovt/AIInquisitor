@@ -18,7 +18,14 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 };
 
 function App() {
-  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || '';
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+
+  // Prevent rendering if client ID is not available
+  if (!googleClientId) {
+    return <div className="min-h-screen flex items-center justify-center">
+      <p className="text-red-600">Error: Google Client ID not configured</p>
+    </div>;
+  }
 
   return (
     <GoogleOAuthProvider clientId={googleClientId}>
